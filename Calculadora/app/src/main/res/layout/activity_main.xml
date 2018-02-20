@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.dev.calculadora.MainActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="com.example.dev.calculadora.MainActivity">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="34dp"
+            android:text="Calculadora" />
+
+    </RelativeLayout>
+
+    <EditText
+        android:id="@+id/editTextval1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="72dp"
+        android:ems="10"
+        android:hint="Valor 1"
+        android:inputType="numberDecimal" />
+
+    <EditText
+        android:id="@+id/editTextval2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/editTextval1"
+        android:layout_alignRight="@+id/editTextval1"
+        android:layout_below="@+id/editTextval1"
+        android:layout_marginTop="24dp"
+        android:ems="10"
+        android:hint="Valor 2"
+        android:inputType="numberDecimal" />
+
+    <Button
+        android:id="@+id/btnDivisao"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/editTextval2"
+        android:layout_alignStart="@+id/editTextval2"
+        android:layout_below="@+id/editTextval2"
+        android:layout_marginTop="18dp"
+        android:onClick="ClickDivisao"
+        android:text="/" />
+
+    <Button
+        android:id="@+id/btnmenos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/btnDivisao"
+        android:layout_alignStart="@+id/btnDivisao"
+        android:layout_below="@+id/btnDivisao"
+        android:layout_marginTop="15dp"
+        android:onClick="ClickMenos"
+        android:text="-" />
+
+    <Button
+        android:id="@+id/btnMultiplicacao"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/editTextval2"
+        android:layout_alignRight="@+id/editTextval2"
+        android:layout_alignTop="@+id/btnDivisao"
+        android:onClick="ClickVezes"
+        android:text="*" />
+
+    <Button
+        android:id="@+id/btnmais"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/btnMultiplicacao"
+        android:layout_alignStart="@+id/btnMultiplicacao"
+        android:layout_alignTop="@+id/btnmenos"
+        android:onClick="ClickMais"
+        android:text="+" />
+
+    <TextView
+        android:id="@+id/txtResultado"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btnmenos"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:text="...." />
+
+</RelativeLayout>
