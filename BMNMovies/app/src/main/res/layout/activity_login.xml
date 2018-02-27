@@ -7,36 +7,50 @@
     tools:context="com.example.dev.bmnmovies.LoginActivity">
 
     <EditText
-        android:id="@+id/editText"
+        android:id="@+id/editTextUser"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginTop="199dp"
+        android:layout_marginLeft="0dp"
+        android:layout_marginRight="0dp"
         android:ems="10"
         android:hint="@string/Hint"
         android:inputType="textPersonName"
-        app:layout_constraintHorizontal_bias="0.503"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintLeft_toLeftOf="@+id/editTextsenha"
+        app:layout_constraintRight_toRightOf="@+id/editTextsenha"
+        app:layout_constraintHorizontal_bias="0.812"
+        android:layout_marginBottom="7dp"
+        app:layout_constraintBottom_toTopOf="@+id/editTextsenha" />
 
     <EditText
-        android:id="@+id/editText3"
+        android:id="@+id/editTextsenha"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="8dp"
         android:ems="10"
-        android:hint="Senha"
-        android:inputType="textPersonName"
-        tools:layout_editor_absoluteX="83dp"
-        tools:layout_editor_absoluteY="270dp" />
+        android:hint="@string/login_senha"
+        android:inputType="textPassword"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.532"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.511" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/buttonEntrar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Entrar"
-        tools:layout_editor_absoluteX="147dp"
-        tools:layout_editor_absoluteY="330dp" />
+        android:layout_marginLeft="0dp"
+        android:layout_marginRight="0dp"
+        android:layout_marginTop="8dp"
+        android:onClick="clickbuttonEntrar"
+        android:text="@string/login_entrar"
+        app:layout_constraintHorizontal_bias="0.45"
+        app:layout_constraintLeft_toLeftOf="@+id/editTextsenha"
+        app:layout_constraintRight_toRightOf="@+id/editTextsenha"
+        app:layout_constraintTop_toBottomOf="@+id/editTextsenha" />
 
 </android.support.constraint.ConstraintLayout>

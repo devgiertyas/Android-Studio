@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">BMNMovies</string>
+    <string name="Hint">Usuário</string>
+    <string name="login_usuario">Usuário</string>
+    <string name="login_senha">Senha</string>
+    <string name="login_entrar">Entrar</string>
 </resources>
