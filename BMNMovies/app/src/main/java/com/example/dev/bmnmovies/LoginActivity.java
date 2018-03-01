@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class LoginActivity extends AppCompatActivity {
@@ -15,6 +16,7 @@ public class LoginActivity extends AppCompatActivity {
     private EditText editTextsenha;
     private Button buttonEntrar;
     private loginclass login = new loginclass();
+    private TextView textViewcad;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,6 +26,23 @@ public class LoginActivity extends AppCompatActivity {
         editTextUser = (EditText)findViewById(R.id.editTextUser);
         editTextsenha = (EditText)findViewById(R.id.editTextsenha);
         buttonEntrar = (Button) findViewById(R.id.buttonEntrar);
+        textViewcad = (TextView) findViewById(R.id.textViewcad);
+
+
+        textViewcad.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent i = new Intent(LoginActivity.this,Activity_Cadastro.class);
+                startActivity(i);
+
+            }
+        });
+
+
+
+
+
 
     }
 
@@ -37,6 +56,7 @@ public class LoginActivity extends AppCompatActivity {
 
                     Intent i = new Intent(LoginActivity.this, MainActivity.class);
                     startActivity(i);
+                    LoginActivity.this.finish();
                 }
                 else
                 {

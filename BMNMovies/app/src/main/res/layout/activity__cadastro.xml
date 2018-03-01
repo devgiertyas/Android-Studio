@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.dev.bmnmovies.Activity_Cadastro">
+
+    <Button
+        android:id="@+id/btnCadastrar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="35dp"
+        android:text="Cadastrar"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintLeft_toLeftOf="@+id/editTextConfimasenha"
+        app:layout_constraintRight_toRightOf="@+id/editTextConfimasenha"
+        app:layout_constraintTop_toBottomOf="@+id/editTextConfimasenha" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="98dp"
+        android:layout_height="43dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="0dp"
+        android:text="Insira Seu Login:"
+        android:textAllCaps="true"
+        android:textStyle="bold|italic"
+        app:layout_constraintBottom_toBottomOf="@+id/editTextlogin"
+        app:layout_constraintRight_toLeftOf="@+id/editTextlogin"
+        app:layout_constraintTop_toTopOf="@+id/editTextlogin"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="113dp"
+        android:layout_height="34dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginRight="0dp"
+        android:layout_marginTop="8dp"
+        android:text="Confirme Sua Senha:"
+        android:textAllCaps="true"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/editTextConfimasenha"
+        app:layout_constraintRight_toLeftOf="@+id/editTextConfimasenha"
+        app:layout_constraintTop_toTopOf="@+id/editTextConfimasenha"
+        app:layout_constraintVertical_bias="0.0"
+        tools:layout_editor_absoluteX="15dp" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="105dp"
+        android:layout_height="37dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginRight="7dp"
+        android:layout_marginTop="8dp"
+        android:text="Digite Sua Senha:"
+        android:textAllCaps="true"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/editTextSenha"
+        app:layout_constraintRight_toLeftOf="@+id/editTextSenha"
+        app:layout_constraintTop_toTopOf="@+id/editTextSenha"
+        app:layout_constraintVertical_bias="0.8" />
+
+    <EditText
+        android:id="@+id/editTextlogin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="42dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:ems="10"
+        android:hint="Exemplo:Eumesmo"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toTopOf="@+id/editTextSenha"
+        app:layout_constraintLeft_toLeftOf="@+id/editTextSenha"
+        app:layout_constraintRight_toRightOf="@+id/editTextSenha" />
+
+    <EditText
+        android:id="@+id/editTextSenha"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPassword"
+        android:layout_marginBottom="18dp"
+        app:layout_constraintBottom_toTopOf="@+id/editTextConfimasenha"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="@+id/editTextConfimasenha"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="@+id/editTextConfimasenha"
+        app:layout_constraintHorizontal_bias="0.5" />
+
+    <EditText
+        android:id="@+id/editTextConfimasenha"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPassword"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="8dp"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintHorizontal_bias="0.947"
+        app:layout_constraintVertical_bias="0.794" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Email:"
+        android:textAllCaps="true"
+        android:textStyle="bold"
+        app:layout_constraintRight_toLeftOf="@+id/editTextemail"
+        android:layout_marginRight="67dp"
+        app:layout_constraintTop_toTopOf="@+id/editTextemail"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/editTextemail"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintVertical_bias="0.1" />
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nome :"
+        android:textAllCaps="true"
+        android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="@+id/editTextnome"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/editTextnome"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintRight_toLeftOf="@+id/editTextnome"
+        android:layout_marginRight="65dp"
+        app:layout_constraintVertical_bias="0.3" />
+
+    <EditText
+        android:id="@+id/editTextemail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="37dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="0dp"
+        android:ems="10"
+        android:hint="Exemplo:Eumesmo@hotmail.com"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toTopOf="@+id/editTextlogin"
+        app:layout_constraintHorizontal_bias="0.75"
+        app:layout_constraintLeft_toLeftOf="@+id/editTextlogin"
+        app:layout_constraintRight_toRightOf="@+id/editTextlogin" />
+
+    <EditText
+        android:id="@+id/editTextnome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="38dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="0dp"
+        android:ems="10"
+        android:hint="Exemplo:joao"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toTopOf="@+id/editTextemail"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintLeft_toLeftOf="@+id/editTextemail"
+        app:layout_constraintRight_toRightOf="@+id/editTextemail" />
+
+</android.support.constraint.ConstraintLayout>

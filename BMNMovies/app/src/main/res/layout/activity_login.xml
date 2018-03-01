@@ -45,12 +45,32 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="0dp"
         android:layout_marginRight="0dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="7dp"
         android:onClick="clickbuttonEntrar"
         android:text="@string/login_entrar"
-        app:layout_constraintHorizontal_bias="0.45"
+        app:layout_constraintHorizontal_bias="0.456"
         app:layout_constraintLeft_toLeftOf="@+id/editTextsenha"
         app:layout_constraintRight_toRightOf="@+id/editTextsenha"
         app:layout_constraintTop_toBottomOf="@+id/editTextsenha" />
+
+    <TextView
+        android:id="@+id/textViewcad"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="8dp"
+        android:clickable="true"
+        android:text="Cadastrar"
+        app:layout_constraintBottom_toBottomOf="@+id/buttonEntrar"
+        app:layout_constraintLeft_toRightOf="@+id/buttonEntrar"
+        app:layout_constraintRight_toRightOf="@+id/editTextsenha"
+        app:layout_constraintTop_toBottomOf="@+id/editTextsenha"
+        tools:onClick="clickbuttonEntrar"
+        tools:shadowColor="@android:color/holo_blue_bright"
+        tools:textColorLink="@android:color/holo_blue_dark"
+        android:textColor="@color/colorPrimary"
+        />
 
 </android.support.constraint.ConstraintLayout>
