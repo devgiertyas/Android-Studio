@@ -1,5 +1,6 @@
 package com.example.dev.bmnmovies;
 
+import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -13,7 +14,7 @@ public class Activity_Cadastro extends AppCompatActivity {
     private EditText editTextSenha;
     private EditText editTextConfimasenha;
     private Button btnCadastrar;
-    private loginclass login = new loginclass();
+    private loginclass login;
     private EditText editTextemail;
     private EditText editTextnome;
 
@@ -23,21 +24,13 @@ public class Activity_Cadastro extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity__cadastro);
-
+        login = new loginclass();
         editTextlogin= (EditText) findViewById(R.id.editTextlogin);
-        editTextSenha= (EditText) findViewById(R.id.editTextsenha);
+        editTextSenha= (EditText) findViewById(R.id.editTextSenha);
         editTextConfimasenha=(EditText) findViewById(R.id.editTextConfimasenha);
         btnCadastrar=(Button)findViewById(R.id.btnCadastrar);
         editTextemail=(EditText) findViewById(R.id.editTextemail);
         editTextnome=(EditText) findViewById(R.id.editTextnome);
-
-
-
-
-
-
-
-
 
         btnCadastrar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -47,8 +40,12 @@ public class Activity_Cadastro extends AppCompatActivity {
                 ///   String Login=(editTextlogin.getText().toString());
                  //  boolean validasenha= login.ValidarSenha(senha,confirmacaodesenha);
 
-
-                String ret=login.cadastrar(editTextnome.getText().toString(),editTextlogin.getText().toString(),editTextSenha.getText().toString(),editTextConfimasenha.getText().toString());
+                //Context self = Activity_Cadastro.;
+                String ret = login.cadastrar(Activity_Cadastro.this
+                        ,editTextnome.getText().toString()
+                        ,editTextlogin.getText().toString()
+                        ,editTextSenha.getText().toString()
+                        ,editTextConfimasenha.getText().toString());
                 if(ret.equals("ok"))
                 {
                     Toast.makeText(Activity_Cadastro.this, "Cadastro realizado com sucesso", Toast.LENGTH_SHORT).show();
