@@ -41,14 +41,19 @@ public class LoginActivity extends AppCompatActivity {
 
 
 
+
+
+
     }
 
-         public void clickbuttonEntrar(View v){
+            public void clickbuttonEntrar(View v){
 
-                boolean valido = login.login(LoginActivity.this,editTextUser.getText().toString()
-                        ,editTextsenha.getText().toString());
+                String usuario = (editTextUser.getText().toString());
+                String senha = (editTextsenha.getText().toString());
+                boolean valido = login.login(LoginActivity.this,usuario, senha);
 
                 if (valido) {
+
                     Intent i = new Intent(LoginActivity.this, MainActivity.class);
                     startActivity(i);
                     LoginActivity.this.finish();

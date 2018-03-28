@@ -4,4 +4,17 @@
     <string name="login_usuario">Usuário</string>
     <string name="login_senha">Senha</string>
     <string name="login_entrar">Entrar</string>
-</resources>
+
+
+<string-array name="Filmes_array">
+
+    <item>Selecione o Filme</item>
+    <item>Ação</item>
+    <item>Aventura</item>
+    <item>Comedia</item>
+    <item>Terror</item>
+    <item>Romance</item>
+    <item>Adulto</item>
+    <item>Animes</item>
+</string-array>
+    </resources>
