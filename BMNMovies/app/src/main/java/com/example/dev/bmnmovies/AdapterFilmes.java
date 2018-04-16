@@ -44,8 +44,8 @@ public class AdapterFilmes extends RecyclerView.Adapter<AdapterFilmes.ViewHolder
 
         if (holder != null){
 
-            holder.textFilme.setText( filmes.get(position).titulo);
-            Picasso.get().load(filmes.get(position).poster).into(holder.imageFilme);
+            holder.textFilme.setText( filmes.get(position).Title);
+            Picasso.get().load(filmes.get(position).Poster).into(holder.imageFilme);
 /*
             holder.imageButtonSpeech.setOnClickListener {
 

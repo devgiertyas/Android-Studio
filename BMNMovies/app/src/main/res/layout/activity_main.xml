@@ -6,14 +6,18 @@
     android:layout_height="match_parent"
     tools:context="com.example.dev.bmnmovies.MainActivity">
 
-    <Spinner
-        android:id="@+id/spinnerFilmes"
-        android:layout_width="184dp"
-        android:layout_height="29dp"
+    <EditText
+        android:id="@+id/txtPesquisa"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
+        android:drawableEnd="@drawable/ic_search_black_24dp"
+        android:drawableRight="@drawable/ic_search_black_24dp"
+        android:hint="Pesquisar filme"
+        android:inputType="text"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -31,6 +35,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spinnerFilmes" />
+        app:layout_constraintTop_toBottomOf="@+id/txtPesquisa" />
 
 </android.support.constraint.ConstraintLayout>

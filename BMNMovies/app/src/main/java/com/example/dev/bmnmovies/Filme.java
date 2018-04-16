@@ -8,20 +8,11 @@ import android.media.Image;
 
 public class Filme {
 
-    String titulo;
-    int ano;
-	String duracao;
-    String genero;
-	String diretor;
-    String escritor;
-	String atores;
-	String linguagem;
-	String pais;
-	String poster;
-
-
-
-
+    String Title;
+    int Year;
+	String imdbID;
+    String Type;
+	String Poster;
 
 
 
