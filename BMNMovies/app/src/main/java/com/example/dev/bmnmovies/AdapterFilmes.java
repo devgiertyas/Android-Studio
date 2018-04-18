@@ -2,6 +2,8 @@ package com.example.dev.bmnmovies;
 
 import android.content.Context;
 //import android.support.v7.app.AlertController;
+import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -40,35 +42,26 @@ public class AdapterFilmes extends RecyclerView.Adapter<AdapterFilmes.ViewHolder
     }
 
     @Override
-    public void onBindViewHolder(ViewHolder holder, int position) {
+    public void onBindViewHolder(ViewHolder holder, final int position) {
 
         if (holder != null){
 
             holder.textFilme.setText( filmes.get(position).Title);
             Picasso.get().load(filmes.get(position).Poster).into(holder.imageFilme);
-/*
-            holder.imageButtonSpeech.setOnClickListener {
 
-                var text = holder.textViewTitle.text.toString()
-                textToSpeech.speak(text, TextToSpeech.QUEUE_FLUSH, null)
-            }
+            holder.imageFilme.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
 
-            holder.cardContainer.setOnClickListener {
-                if (side == 0){
-                    holder.textViewTitle.text = data[position].word
-                    holder.cardContainer.setBackgroundColor(context.resources.getColor(R.color.colorFrontSide))
-                    side = 1
-                }else{
-                    holder.textViewTitle.text = data[position].definition
-                    holder.cardContainer.setBackgroundColor(context.resources.getColor(R.color.colorBackSide))
-                    side = 0
+                    Uri uri = Uri.parse("https://xmovies8.nu/movies/search?s="+filmes.get(position).Title);
+                    Intent it = new Intent(Intent. ACTION_VIEW, uri);
+                    context.startActivity(it);
+
+
                 }
-            }
+            });
 
-            holder.cardContainer.setOnLongClickListener {
-                listener.onItemClick(data[position])
-                true
-            }*/
+
         }
     }
 

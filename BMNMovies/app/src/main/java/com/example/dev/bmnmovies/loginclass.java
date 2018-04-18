@@ -25,19 +25,7 @@ public class loginclass {
         return valido;
     }
 
-   /* public boolean logar(String usuario, String senha){
 
-        boolean valido = true;
-        if (!usuario.equals("admin") || !senha.equals("admin"))
-        {
-            valido = false;
-        }
-
-        return valido;
-
-
-    }
-*/
     public  boolean ValidarSenha(String senha, String Confirmasenha)
     {
 
@@ -55,23 +43,9 @@ public class loginclass {
     public String cadastrar(Context contexto, String nome,String login ,String senha,String resenha)
 
     {
-        if (nome.length() <=4)
-        {
-            return "Nome deve ser maior que 5 caracteres";
 
-        }
-        if (login.length() <=4)
-        {
-            return "Nome deve ser maior que 5 caracteres";
-
-        }
-        if (senha.length() <=4)
-        {
-            return "Nome deve ser maior que 5 caracteres";
-
-        }
         if(!senha.equals(resenha)){
-            return "senha incorreta";
+            return "Confirmação de senha incorreta";
 
         }
             //salvar no banco

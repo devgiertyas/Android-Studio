@@ -31,7 +31,7 @@ public class Activity_Cadastro extends AppCompatActivity {
         editTextemail=(EditText) findViewById(R.id.editTextemail);
         editTextnome=(EditText) findViewById(R.id.editTextnome);
 
-
+//https://megafilmes.org/?s=
 
 
 
@@ -59,8 +59,9 @@ public class Activity_Cadastro extends AppCompatActivity {
                else
 
                 {
+                         loginclass lg = new loginclass();
 
-                    Toast.makeText(Activity_Cadastro.this, "Erro,Erro,Erro,Erro,Erro,Erro,Erro,Erro,Erro,Erro,Erro,", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Activity_Cadastro.this, ""+ret, Toast.LENGTH_SHORT).show();
 
                 }
 

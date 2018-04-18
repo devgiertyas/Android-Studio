@@ -9,6 +9,7 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.Spinner;
 
 import com.android.volley.NetworkResponse;
@@ -36,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
     private RecyclerView listview;
     EditText txtPesquisa;
 
+
     ArrayList<Filme> filmes;
     AdapterFilmes adapterFilmes;
 
@@ -47,6 +49,8 @@ public class MainActivity extends AppCompatActivity {
         txtPesquisa = (EditText) findViewById(R.id.txtPesquisa);
         // Create an ArrayAdapter using the string array and a default spinner layout
         listview = (RecyclerView) findViewById(R.id.listview);
+
+
 
         filmes = new ArrayList<Filme>();
 
@@ -75,6 +79,10 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+
+
+
+
 
     }
 
@@ -134,54 +142,5 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-
-
 }
 
-
-
-/*
-    RequestQueue queue = Volley.newRequestQueue(this);
-    String url ="http://www.google.com";
-
-    // Request a string response from the provided URL.
-    StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
-            new Response.Listener<String>() {
-                @Override
-                public void onResponse(String response) {
-                    // Display the first 500 characters of the response string.
-                    mTextView.setText("Response is: "+ response.substring(0,500));
-                }
-            }, new Response.ErrorListener() {
-        @Override
-        public void onErrorResponse(VolleyError error) {
-            mTextView.setText("That didn't work!");
-        }
-    });
-
-// Add the request to the RequestQueue.
-queue.add(stringRequest);
-*/
-
-// Request a string response from the provided URL.
-        /*StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
-                new Response.Listener<String>() {
-                    @Override
-                    public void onResponse(String response) {
-                        // Display the first 500 characters of the response string.
-                       Log.v("ret", response);
-
-                        Gson gson = new Gson();
-                        Type typeListaDeItem = new TypeToken<List<Filme>>(){}.getType();
-
-                        List<Filme> listaDoBanco = gson.fromJson(response, typeListaDeItem);
-
-                    }
-                }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                Log.v("erro", "That didn't work!");
-            }
-        });*/
-
-// Add the request to the RequestQueue.
