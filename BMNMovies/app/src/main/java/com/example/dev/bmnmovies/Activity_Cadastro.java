@@ -28,7 +28,6 @@ public class Activity_Cadastro extends AppCompatActivity {
         editTextSenha= (EditText) findViewById(R.id.editTextSenha);
         editTextConfimasenha=(EditText) findViewById(R.id.editTextConfimasenha);
         btnCadastrar=(Button)findViewById(R.id.btnCadastrar);
-        editTextemail=(EditText) findViewById(R.id.editTextemail);
         editTextnome=(EditText) findViewById(R.id.editTextnome);
 
 //https://megafilmes.org/?s=

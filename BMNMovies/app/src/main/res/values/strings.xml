@@ -4,9 +4,17 @@
     <string name="login_usuario">Usuário</string>
     <string name="login_senha">Senha</string>
     <string name="login_entrar">Entrar</string>
+    <string name="hintnome">Nome</string>
+    <string name="hintlogin">Login</string>
+    <string name="hintsenha">Senha</string>
+    <string name="hintresenha">Confirme sua senha</string>
+    <string name="textCadastro">Preencha os campos abaixo</string>
+    <string name="textCadastrar">Cadastrar</string>
+    <string name="textLogin">Entrar</string>
+    <string name="textPesquisar">Digite o nome do filme</string>
 
 
-<string-array name="Filmes_array">
+    <string-array name="Filmes_array">
 
     <item>Selecione o Filme</item>
     <item>Ação</item>

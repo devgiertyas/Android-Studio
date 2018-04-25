@@ -2,6 +2,7 @@ package com.example.dev.bmnmovies;
 
 import android.app.Dialog;
 import android.content.Intent;
+import android.speech.tts.TextToSpeech;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -17,6 +18,7 @@ public class LoginActivity extends AppCompatActivity {
     private Button buttonEntrar;
     private loginclass login = new loginclass();
     private TextView textViewcad;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +48,8 @@ public class LoginActivity extends AppCompatActivity {
 
     }
 
+
+
             public void clickbuttonEntrar(View v){
 
                 String usuario = (editTextUser.getText().toString());
@@ -57,6 +61,7 @@ public class LoginActivity extends AppCompatActivity {
                     Intent i = new Intent(LoginActivity.this, MainActivity.class);
                     startActivity(i);
                     LoginActivity.this.finish();
+
                 }
                 else
                 {
