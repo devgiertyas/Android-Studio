@@ -13,6 +13,8 @@ public class Filme {
 	String imdbID;
     String Type;
 	String Poster;
+	String Atores;
+	String tempoduracao;
 
 
 

@@ -67,6 +67,9 @@ public class LoginActivity extends AppCompatActivity {
                 {
                     Toast.makeText(this, "Usuário ou senha incorretos!", Toast.LENGTH_SHORT).show();
 
+                    Intent i = new Intent(LoginActivity.this, MainActivity.class);
+                    startActivity(i);
+                    LoginActivity.this.finish();
                 }
 
     }

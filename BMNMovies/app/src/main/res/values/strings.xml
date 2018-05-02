@@ -16,15 +16,15 @@
 
     <string-array name="Filmes_array">
 
-    <item>Selecione o Filme</item>
-    <item>Ação</item>
-    <item>Aventura</item>
-    <item>Comedia</item>
-    <item>Terror</item>
-    <item>Romance</item>
-    <item>Adulto</item>
-    <item>Animes</item>
+        <item>Selecione o Filme</item>
+        <item>Ação</item>
+        <item>Aventura</item>
+        <item>Comedia</item>
+        <item>Terror</item>
+        <item>Romance</item>
+        <item>Adulto</item>
+        <item>Animes</item>
 
 
-</string-array>
-    </resources>
+    </string-array>
+</resources>

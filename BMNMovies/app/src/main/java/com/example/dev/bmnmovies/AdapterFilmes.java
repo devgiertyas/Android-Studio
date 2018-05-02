@@ -5,13 +5,24 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.Volley;
 import com.squareup.picasso.Picasso;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 
@@ -49,14 +60,29 @@ public class AdapterFilmes extends RecyclerView.Adapter<AdapterFilmes.ViewHolder
             holder.textFilme.setText( filmes.get(position).Title);
             Picasso.get().load(filmes.get(position).Poster).into(holder.imageFilme);
 
+            /*
+            holder.txttitulo.setText(filmes.get(position).Title);
+            holder.txtano.setText(filmes.get(position).Year);
+            holder.txttempoduracao.setText(filmes.get(position).tempoduracao);
+            holder.txtatores.setText(filmes.get(position).Atores);
+            Picasso.get().load(filmes.get(position).Poster).into(holder.imageViewTeste);
+*/
+
             holder.imageFilme.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
 
-                    Uri uri = Uri.parse("https://xmovies8.nu/movies/search?s="+filmes.get(position).Title);
-                    Intent it = new Intent(Intent. ACTION_VIEW, uri);
+                    MainActivity man = new  MainActivity();
+
+                    Intent it = new Intent(context.getApplicationContext(), Detalhes.class);
+                    it.putExtra("imdbID",filmes.get(position).imdbID);
                     context.startActivity(it);
 
+
+                  /*  Uri uri = Uri.parse("https://xmovies8.nu/movies/search?s="+filmes.get(position).Title);
+                    Intent it = new Intent(Intent. ACTION_VIEW, uri);
+                    context.startActivity(it);
+                  */
 
                 }
             });
@@ -64,6 +90,7 @@ public class AdapterFilmes extends RecyclerView.Adapter<AdapterFilmes.ViewHolder
 
         }
     }
+
 
     @Override
     public int getItemCount() {
@@ -74,13 +101,21 @@ public class AdapterFilmes extends RecyclerView.Adapter<AdapterFilmes.ViewHolder
     public class ViewHolder extends RecyclerView.ViewHolder {
 
        TextView textFilme ;
-       ImageView imageFilme;
+       ImageView imageFilme, imageViewTeste;
+       TextView txttitulo, txtano, txttempoduracao, txtatores;
        public ViewHolder(View itemView) {
            super(itemView);
 
            if (itemView != null){
                this.textFilme = itemView.findViewById(R.id.textFilme);
                this.imageFilme = itemView.findViewById(R.id.imageFilme);
+               /*
+               this.txttitulo = itemView.findViewById(R.id.txtTitulo);
+               txtano = itemView.findViewById(R.id.txtAno);
+               txttempoduracao = itemView.findViewById(R.id.txtTempoDeDuraçao);
+               txtatores= itemView.findViewById(R.id.txtAtores);
+               imageViewTeste = itemView.findViewById(R.id.imageViewTeste);
+               */
            }
 
        }

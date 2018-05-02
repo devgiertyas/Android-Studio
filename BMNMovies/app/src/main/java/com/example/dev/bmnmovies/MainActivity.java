@@ -1,5 +1,6 @@
 package com.example.dev.bmnmovies;
 
+import android.app.VoiceInteractor;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -73,7 +74,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void afterTextChanged(Editable editable) {
 
-                if (txtPesquisa.getText().toString().length() > 3 ) {
+                if (txtPesquisa.getText().toString().length() > 2 ) {
 
                     DadosPesquisa(txtPesquisa.getText().toString());
                 }
@@ -90,6 +91,7 @@ public class MainActivity extends AppCompatActivity {
 
         RequestQueue queue = Volley.newRequestQueue(this);
         String url ="http://www.omdbapi.com/?s="+texto+"&apikey=faa8270c";
+
 
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest( Request.Method.GET
                 , url
@@ -114,11 +116,15 @@ public class MainActivity extends AppCompatActivity {
                                 filme.Title = item.getString("Title");
                                 filme.Year  = item.getInt("Year");
                                 filme.imdbID = item.getString("imdbID");
-                               filme.Type = item.getString("Type");
+                                filme.Type = item.getString("Type");
                                 filme.Poster = item.getString("Poster");
+
 
                                 filmes.add(filme);
                                 adapterFilmes.notifyDataSetChanged();
+
+
+
                             }
                         }catch (JSONException e){
                             e.printStackTrace();
@@ -135,12 +141,10 @@ public class MainActivity extends AppCompatActivity {
                 }
                 );
 
-
         queue.add(jsonObjectRequest);
-
-
-
     }
+
+
 
 }
 
