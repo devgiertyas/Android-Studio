@@ -9,7 +9,7 @@ import android.media.Image;
 public class Filme {
 
     String Title;
-    int Year;
+    String Year;
 	String imdbID;
     String Type;
 	String Poster;

@@ -1,6 +1,9 @@
 package com.example.dev.bmnmovies;
 
+import android.app.Dialog;
 import android.app.VoiceInteractor;
+import android.content.Intent;
+import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -9,9 +12,15 @@ import android.support.v7.widget.RecyclerView;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import com.android.volley.NetworkResponse;
 import com.android.volley.Request;
@@ -32,6 +41,7 @@ import org.json.JSONObject;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.zip.Inflater;
 
 public class MainActivity extends AppCompatActivity {
     private Spinner spinnerFilmes;
@@ -42,6 +52,8 @@ public class MainActivity extends AppCompatActivity {
     ArrayList<Filme> filmes;
     AdapterFilmes adapterFilmes;
 
+    MenuItem txtLogado;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,8 +63,6 @@ public class MainActivity extends AppCompatActivity {
         // Create an ArrayAdapter using the string array and a default spinner layout
         listview = (RecyclerView) findViewById(R.id.listview);
 
-
-
         filmes = new ArrayList<Filme>();
 
         listview.setLayoutManager(new GridLayoutManager(MainActivity.this, 2));
@@ -60,9 +70,11 @@ public class MainActivity extends AppCompatActivity {
 
         listview.setAdapter(adapterFilmes);
 
+
         txtPesquisa.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                
 
             }
 
@@ -76,7 +88,9 @@ public class MainActivity extends AppCompatActivity {
 
                 if (txtPesquisa.getText().toString().length() > 2 ) {
 
+
                     DadosPesquisa(txtPesquisa.getText().toString());
+
                 }
             }
         });
@@ -114,7 +128,7 @@ public class MainActivity extends AppCompatActivity {
                                 JSONObject item = array.getJSONObject(i);
 
                                 filme.Title = item.getString("Title");
-                                filme.Year  = item.getInt("Year");
+                                filme.Year  = item.getString("Year");
                                 filme.imdbID = item.getString("imdbID");
                                 filme.Type = item.getString("Type");
                                 filme.Poster = item.getString("Poster");
@@ -144,6 +158,62 @@ public class MainActivity extends AppCompatActivity {
         queue.add(jsonObjectRequest);
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menudo, menu);
+        txtLogado = menu.findItem(R.id.txtLogado);
+        txtLogado.setTitle("nome");
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        if (item.getItemId() == R.id.mn_logout){
+
+            callQuestion("Deseja realmente sair?");
+
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
+    private void callQuestion(String msg2) {
+
+
+        final Dialog dialog = new Dialog(this);
+        dialog.setContentView(R.layout.dialog_question);
+
+        TextView txtPergunta = dialog.findViewById(R.id.txtPergunta);
+        Button btnOk = dialog.findViewById(R.id.btnOk);
+        Button btnCancelar = dialog.findViewById(R.id.btnCancelar);
+
+        txtPergunta.setText(msg2);
+        btnCancelar.setText("Não");
+        btnCancelar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                dialog.dismiss();
+
+            }
+        });
+        btnOk.setText("Sim");
+        btnOk.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                new loginclass().DesLogado(MainActivity.this);
+                System.exit(0);
+
+                dialog.dismiss();
+            }
+        });
+
+        dialog.show();
+
+    }
 
 
 }

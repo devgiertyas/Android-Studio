@@ -9,21 +9,49 @@ import android.content.SharedPreferences;
 
 public class loginclass {
 
+
+
     public boolean login(Context contexto,String usuario,String senha) {
+
+
         boolean valido = true;
-
-
         SharedPreferences sharedPref = contexto.getSharedPreferences("loginclass", Context.MODE_PRIVATE);
         String loginDB = sharedPref.getString("nome", "^7j*^$89");
         String senhaDB = sharedPref.getString("senha", "^7j*^$89");
 
         if (!usuario.equals(loginDB) || !senha.equals(senhaDB)) {
             valido = false;
+
         }
 
 
+        SharedPreferences.Editor editor = sharedPref.edit();
+        editor.putBoolean("logado", valido);
+        editor.commit();
+
         return valido;
     }
+
+    public boolean UsuarioLogado(Context contexto){
+
+        SharedPreferences sharedPref = contexto.getSharedPreferences("loginclass", Context.MODE_PRIVATE);
+        return sharedPref.getBoolean("logado", false );
+
+    }
+
+    public boolean DesLogado(Context contexto){
+
+        boolean valido = false;
+        SharedPreferences sharedPref = contexto.getSharedPreferences("loginclass", Context.MODE_PRIVATE);
+
+
+        SharedPreferences.Editor editor = sharedPref.edit();
+        editor.putBoolean("logado", false);
+        editor.commit();
+        return valido;
+
+    }
+
 
 
     public  boolean ValidarSenha(String senha, String Confirmasenha)

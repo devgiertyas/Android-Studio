@@ -26,14 +26,22 @@ public class SplashScreenActivity extends AppCompatActivity {
         timer.scheduleAtFixedRate(new TimerTask() {
                                       @Override
                                       public void run() {
-                                          SPLASH_TIME_OUT += 1;
+                                          SPLASH_TIME_OUT += 5;
                                           progressBar.setProgress((SPLASH_TIME_OUT));
 
-                                          if (SPLASH_TIME_OUT >= 100) {
-                                              Intent i = new Intent(SplashScreenActivity.this, LoginActivity.class);
-                                              startActivity(i);
-                                              this.cancel();
-                                              SplashScreenActivity.this.finish();
+                                          if(SPLASH_TIME_OUT >= 100) {
+
+                                              if (new loginclass().UsuarioLogado(SplashScreenActivity.this)) {
+                                                  Intent i = new Intent(SplashScreenActivity.this, MainActivity.class);
+                                                  startActivity(i);
+                                                  this.cancel();
+                                                  SplashScreenActivity.this.finish();
+                                              } else {
+                                                  Intent i = new Intent(SplashScreenActivity.this, LoginActivity.class);
+                                                  startActivity(i);
+                                                  this.cancel();
+                                                  SplashScreenActivity.this.finish();
+                                              }
                                           }
                                       }
 

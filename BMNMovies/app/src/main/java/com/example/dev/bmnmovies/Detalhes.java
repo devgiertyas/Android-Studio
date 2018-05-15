@@ -1,11 +1,17 @@
 package com.example.dev.bmnmovies;
 
+import android.app.Dialog;
+import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -23,8 +29,9 @@ import java.util.ArrayList;
 
 public class Detalhes extends AppCompatActivity {
 
-    TextView txttitulo, txtano, txttempoduracao, txtatores;
+    TextView txttitulo, txtano, txttempoduracao, txtatores, txtPergunta;
     ImageView imageView;
+    Button btVerfilme, btnCancelar, btnOk;
 
     private String imdbID;
 
@@ -37,14 +44,68 @@ public class Detalhes extends AppCompatActivity {
         txtano = findViewById(R.id.txtAno);
         txttempoduracao = findViewById(R.id.txtTempoDeDuracao);
         txtatores = findViewById(R.id.txtAtores);
+        txtPergunta = findViewById(R.id.txtPergunta);
         imageView = findViewById(R.id.imageViewTeste);
+        btVerfilme = findViewById(R.id.btVerfilme);
+        btnCancelar = findViewById(R.id.btnCancelar);
+        btnOk = findViewById(R.id.btnOk);
 
         imdbID = getIntent().getExtras().getString("imdbID");
 
         DadosId(imdbID);
 
+        btVerfilme.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+
+                callQuestion("Você aceita ser direcionado ao site do filme?");
+
+            }
+        });
+    }
+
+    private void callQuestion(String msg2) {
+
+
+        final Dialog dialog = new Dialog(this);
+        dialog.setContentView(R.layout.dialog_question);
+
+        TextView txtPergunta = dialog.findViewById(R.id.txtPergunta);
+        Button btnOk = dialog.findViewById(R.id.btnOk);
+        Button btnCancelar = dialog.findViewById(R.id.btnCancelar);
+
+        txtPergunta.setText(msg2);
+        btnCancelar.setText("Não");
+        btnCancelar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                dialog.dismiss();
+
+            }
+        });
+        btnOk.setText("Sim");
+        btnOk.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Uri uri = Uri.parse("https://xmovies8.nu/movies/search?s=" + txttitulo.getText());
+                Intent it = new Intent(Intent.ACTION_VIEW, uri);
+                startActivity(it);
+
+                dialog.dismiss();
+            }
+        });
+
+        dialog.show();
 
     }
+
+
+
+
+
 
 
 
@@ -69,7 +130,7 @@ public class Detalhes extends AppCompatActivity {
                         JSONObject item = response;
 
                         filme.Title = item.getString("Title");
-                        //filme.Year  = Integer.parseInt(item.getString("Year"));
+                        filme.Year  = item.getString("Year");
                         filme.imdbID = item.getString("imdbID");
                         filme.tempoduracao = item.getString("Runtime");
                         filme.Poster = item.getString("Poster");
@@ -77,7 +138,7 @@ public class Detalhes extends AppCompatActivity {
 
 
                         txttitulo.setText(filme.Title);
-                      //  txtano.setText(filme.Year);
+                        txtano.setText(filme.Year);
                         txttempoduracao.setText(filme.tempoduracao);
                         txtatores.setText(filme.Atores);
                         Picasso.get().load(filme.Poster).into(imageView);

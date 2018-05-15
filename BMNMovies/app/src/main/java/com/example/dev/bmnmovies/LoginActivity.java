@@ -56,22 +56,21 @@ public class LoginActivity extends AppCompatActivity {
                 String senha = (editTextsenha.getText().toString());
                 boolean valido = login.login(LoginActivity.this,usuario, senha);
 
-                if (valido) {
 
-                    Intent i = new Intent(LoginActivity.this, MainActivity.class);
-                    startActivity(i);
-                    LoginActivity.this.finish();
+                    if (valido) {
 
+                        Intent i = new Intent(LoginActivity.this, MainActivity.class);
+                        startActivity(i);
+                        LoginActivity.this.finish();
+
+                    } else {
+                        Toast.makeText(this, "Usuário ou senha incorretos!", Toast.LENGTH_SHORT).show();
+
+                        Intent i = new Intent(LoginActivity.this, MainActivity.class);
+
+
+                    }
                 }
-                else
-                {
-                    Toast.makeText(this, "Usuário ou senha incorretos!", Toast.LENGTH_SHORT).show();
-
-                    Intent i = new Intent(LoginActivity.this, MainActivity.class);
-                    startActivity(i);
-                    LoginActivity.this.finish();
-                }
-
     }
 
-}
+
