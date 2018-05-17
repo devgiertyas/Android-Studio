@@ -1,8 +1,6 @@
 package com.example.dev.bmnmovies;
 
-import android.app.Dialog;
 import android.content.Intent;
-import android.speech.tts.TextToSpeech;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -16,7 +14,7 @@ public class LoginActivity extends AppCompatActivity {
     private EditText editTextUser;
     private EditText editTextsenha;
     private Button buttonEntrar;
-    private loginclass login = new loginclass();
+    private AppControle login = new AppControle();
     private TextView textViewcad;
 
 

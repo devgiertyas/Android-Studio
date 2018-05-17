@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.RatingBar;
 import android.widget.TextView;
 
 import com.android.volley.Request;
@@ -34,6 +35,7 @@ public class AdapterFilmes extends RecyclerView.Adapter<AdapterFilmes.ViewHolder
 
     Context context;
     ArrayList<Filme> filmes;
+
 
     public AdapterFilmes(Context context, ArrayList<Filme> filmes){
         this.context = context;
@@ -76,6 +78,7 @@ public class AdapterFilmes extends RecyclerView.Adapter<AdapterFilmes.ViewHolder
 
                     Intent it = new Intent(context.getApplicationContext(), Detalhes.class);
                     it.putExtra("imdbID",filmes.get(position).imdbID);
+
                     context.startActivity(it);
 
 

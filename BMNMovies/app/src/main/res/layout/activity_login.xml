@@ -10,16 +10,14 @@
         android:id="@+id/editTextUser"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="0dp"
-        android:layout_marginRight="0dp"
-        android:ems="10"
-        android:hint="@string/Hint"
-        android:inputType="textPersonName"
-        app:layout_constraintLeft_toLeftOf="@+id/editTextsenha"
-        app:layout_constraintRight_toRightOf="@+id/editTextsenha"
-        app:layout_constraintHorizontal_bias="0.812"
         android:layout_marginBottom="7dp"
-        app:layout_constraintBottom_toTopOf="@+id/editTextsenha" />
+        android:ems="10"
+        android:hint="@string/hintlogin"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toTopOf="@+id/editTextsenha"
+        app:layout_constraintHorizontal_bias="0.812"
+        app:layout_constraintLeft_toLeftOf="@+id/editTextsenha"
+        app:layout_constraintRight_toRightOf="@+id/editTextsenha" />
 
     <EditText
         android:id="@+id/editTextsenha"

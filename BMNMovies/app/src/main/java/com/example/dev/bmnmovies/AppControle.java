@@ -7,7 +7,7 @@ import android.content.SharedPreferences;
  * Created by dev on 2/26/18.
  */
 
-public class loginclass {
+public class AppControle {
 
 
 
@@ -15,8 +15,8 @@ public class loginclass {
 
 
         boolean valido = true;
-        SharedPreferences sharedPref = contexto.getSharedPreferences("loginclass", Context.MODE_PRIVATE);
-        String loginDB = sharedPref.getString("nome", "^7j*^$89");
+        SharedPreferences sharedPref = contexto.getSharedPreferences("AppControle", Context.MODE_PRIVATE);
+        String loginDB = sharedPref.getString("login", "^7j*^$89");
         String senhaDB = sharedPref.getString("senha", "^7j*^$89");
 
         if (!usuario.equals(loginDB) || !senha.equals(senhaDB)) {
@@ -32,17 +32,27 @@ public class loginclass {
         return valido;
     }
 
+    public String UsuarioLogadoNome(Context contexto){
+
+        SharedPreferences sharedPref = contexto.getSharedPreferences("AppControle", Context.MODE_PRIVATE);
+        sharedPref.getBoolean("logado",false);
+        return sharedPref.getString("nome", "^7j*^$89");
+
+
+    }
+
     public boolean UsuarioLogado(Context contexto){
 
-        SharedPreferences sharedPref = contexto.getSharedPreferences("loginclass", Context.MODE_PRIVATE);
+        SharedPreferences sharedPref = contexto.getSharedPreferences("AppControle", Context.MODE_PRIVATE);
         return sharedPref.getBoolean("logado", false );
+
 
     }
 
     public boolean DesLogado(Context contexto){
 
         boolean valido = false;
-        SharedPreferences sharedPref = contexto.getSharedPreferences("loginclass", Context.MODE_PRIVATE);
+        SharedPreferences sharedPref = contexto.getSharedPreferences("AppControle", Context.MODE_PRIVATE);
 
 
         SharedPreferences.Editor editor = sharedPref.edit();
@@ -84,9 +94,10 @@ public class loginclass {
         return "ok";
 
     }
+
     private void salvarNoDB(Context contexto, String nome,String login,String senha) {
 
-        SharedPreferences sharedPref = contexto.getSharedPreferences("loginclass", Context.MODE_PRIVATE);
+        SharedPreferences sharedPref = contexto.getSharedPreferences("AppControle", Context.MODE_PRIVATE);
 
         SharedPreferences.Editor editor = sharedPref.edit();
         editor.putString("nome", nome);
@@ -95,5 +106,22 @@ public class loginclass {
         editor.commit();
     }
 
+    public void salvarEstrelas(Context contexto, String imdbID,Float valor) {
+
+        SharedPreferences sharedPref = contexto.getSharedPreferences("AppControle", Context.MODE_PRIVATE);
+
+        SharedPreferences.Editor editor = sharedPref.edit();
+        editor.putFloat(imdbID, valor);
+
+        editor.commit();
+    }
+
+    public float LerEstrelas(Context contexto, String imdbID){
+
+        SharedPreferences sharedPref = contexto.getSharedPreferences("AppControle", Context.MODE_PRIVATE);
+        return sharedPref.getFloat(imdbID,7878);
+
+
+    }
 
 }

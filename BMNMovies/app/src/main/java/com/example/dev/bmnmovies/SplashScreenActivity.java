@@ -31,7 +31,7 @@ public class SplashScreenActivity extends AppCompatActivity {
 
                                           if(SPLASH_TIME_OUT >= 100) {
 
-                                              if (new loginclass().UsuarioLogado(SplashScreenActivity.this)) {
+                                              if (new AppControle().UsuarioLogado(SplashScreenActivity.this)) {
                                                   Intent i = new Intent(SplashScreenActivity.this, MainActivity.class);
                                                   startActivity(i);
                                                   this.cancel();

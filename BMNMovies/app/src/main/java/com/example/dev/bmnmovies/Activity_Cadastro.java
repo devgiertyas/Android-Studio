@@ -13,7 +13,7 @@ public class Activity_Cadastro extends AppCompatActivity {
     private EditText editTextSenha;
     private EditText editTextConfimasenha;
     private Button btnCadastrar;
-    private loginclass login = new loginclass();
+    private AppControle login = new AppControle();
     private EditText editTextemail;
     private EditText editTextnome;
 
@@ -58,7 +58,7 @@ public class Activity_Cadastro extends AppCompatActivity {
                else
 
                 {
-                         loginclass lg = new loginclass();
+                         AppControle lg = new AppControle();
 
                     Toast.makeText(Activity_Cadastro.this, ""+ret, Toast.LENGTH_SHORT).show();
 

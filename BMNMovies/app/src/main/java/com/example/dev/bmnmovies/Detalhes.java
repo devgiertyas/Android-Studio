@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -32,6 +33,7 @@ public class Detalhes extends AppCompatActivity {
     TextView txttitulo, txtano, txttempoduracao, txtatores, txtPergunta;
     ImageView imageView;
     Button btVerfilme, btnCancelar, btnOk;
+    RatingBar Estrelas;
 
     private String imdbID;
 
@@ -49,10 +51,22 @@ public class Detalhes extends AppCompatActivity {
         btVerfilme = findViewById(R.id.btVerfilme);
         btnCancelar = findViewById(R.id.btnCancelar);
         btnOk = findViewById(R.id.btnOk);
+        Estrelas = findViewById(R.id.Estrelas);
+
 
         imdbID = getIntent().getExtras().getString("imdbID");
 
         DadosId(imdbID);
+
+        Estrelas.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
+            @Override
+            public void onRatingChanged(RatingBar ratingBar, float v, boolean b) {
+
+                new AppControle().salvarEstrelas(Detalhes.this,imdbID,v);
+
+            }
+        });
+
 
         btVerfilme.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -63,6 +77,12 @@ public class Detalhes extends AppCompatActivity {
 
             }
         });
+    }
+
+    @Override
+    protected void onResume() {
+        Estrelas.setRating(new AppControle().LerEstrelas(Detalhes.this,imdbID));
+        super.onResume();
     }
 
     private void callQuestion(String msg2) {
@@ -101,12 +121,6 @@ public class Detalhes extends AppCompatActivity {
         dialog.show();
 
     }
-
-
-
-
-
-
 
 
     public void DadosId(String imdbID){
@@ -160,8 +174,5 @@ public class Detalhes extends AppCompatActivity {
 
         queue.add(jsonObjectRequest);
     }
-
-
-
 
 }
