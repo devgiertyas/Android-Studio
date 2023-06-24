@@ -1,2 +1,2 @@
-# NatanSenac
-Arquivos da programação Android
+# Natã Giertyas
+Conteúdos do curso de Técnico em Informática do SenacRS
